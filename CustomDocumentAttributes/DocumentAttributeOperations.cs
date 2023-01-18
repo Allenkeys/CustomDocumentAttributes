@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CustomDocumentAttributes
 {
-    internal class DocumentAttributeOperations
+    public class DocumentAttributeOperations
     {
         public static void GetDocs()
         {
@@ -19,11 +19,11 @@ namespace CustomDocumentAttributes
             {
                 foreach (var member in memberArr)
                 {
-                    var attributes = member.GetCustomAttributes(typeof(DocumentAttributes), true);
+                    var attributes = member.GetCustomAttributes(typeof(DocumentAttribute), true);
 
                     if (attributes.Length > 0)
                     {
-                        var doc = (DocumentAttributes)attributes[0];
+                        var doc = (DocumentAttribute)attributes[0];
                         Console.WriteLine($"Member Type: {member.MemberType}");
                         Console.WriteLine($"Name: {member.Name}");
                         Console.WriteLine($"\nDescription: {doc.Description}\nInput: {doc.Input}\n Output: {doc.Output}");
